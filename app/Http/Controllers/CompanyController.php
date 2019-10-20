@@ -7,6 +7,8 @@ use App\Employee;
 
 class CompanyController extends Controller
 {
+    
+
     /**
      * Create a new controller instance.
      *
