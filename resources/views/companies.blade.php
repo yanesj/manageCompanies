@@ -87,11 +87,20 @@
           <tbody>
             @foreach($companies as $company)
                 <tr>
-                  <th scope="row">{{$company->name}}</th>
+                  <th scope="row"><a href="{{url('editCompany')}}/{{$company->id}}">{{$company->name}}
+                  </a></th>
                   <td>{{$company->email}}</td>
                   <td>{{$company->website}}</td>
-                  <td>{{$company->logo}}</td>
-                  <td>ok</td>
+                  <td><a href="{{ asset('storage/'.$company->logo) }}" target="_blank">View</a></td>
+                  <td><form action="{{ route('deleteCompany', $company->id) }}" method="POST">
+                    {{csrf_field()}}
+                    {{method_field('DELETE')}}
+                   <button type="submit" class="btn btn-primary">Delete</button>
+                    
+                  </form>
+                   
+
+                </td>
                 </tr>
             @endforeach
 

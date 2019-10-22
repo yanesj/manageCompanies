@@ -16,8 +16,15 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+//Companies
 Route::get('/companies', 'HomeController@index')->name('companies');
-Route::get('/employees','EmployeeController@index')->name('employees');
 Route::post('/createCompany','HomeController@create')->name('createCompany');
+Route::get('/editCompany/{id}','HomeController@edit')->name('editCompany');
+Route::put('/updateCompany/{id}','HomeController@update')->name('updateCompany');
+Route::delete('deleteCompany/{id}','HomeController@delete')->name('deleteCompany');
+//Employees
+Route::get('/employees','EmployeeController@index')->name('employees');
 Route::post('/createEmployee','EmployeeController@create')->name('createEmployee');
+Route::get('/editEmployee/{id}','EmployeeController@edit')->name('editEmployee');
+Route::put('/updateEmployee/{id}','EmployeeController@update')->name('updateEmployee');
+Route::delete('deleteEmployee/{id}','EmployeeController@delete')->name('deleteEmployee');
