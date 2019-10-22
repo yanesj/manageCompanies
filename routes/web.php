@@ -28,3 +28,9 @@ Route::post('/createEmployee','EmployeeController@create')->name('createEmployee
 Route::get('/editEmployee/{id}','EmployeeController@edit')->name('editEmployee');
 Route::put('/updateEmployee/{id}','EmployeeController@update')->name('updateEmployee');
 Route::delete('deleteEmployee/{id}','EmployeeController@delete')->name('deleteEmployee');
+
+//multilanguages
+Route::get('lang/{lang}', 'LanguageController@swap')->name('lang.swap');
+
+//notification
+Route::get('/notificate', 'NotificationsController@notificate')->name('notificate');

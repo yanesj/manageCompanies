@@ -53,7 +53,7 @@ class EmployeeController extends Controller
             'email' => $request->email,
             'phone' => $request->phone 
         ]);
-        return redirect('/employees')->with('alert-success', 'Success!');
+        return redirect('/employees')->with('alert-success',trans('messages.employee_created'));
 
     }
 
@@ -81,11 +81,11 @@ class EmployeeController extends Controller
       $employee->phone = $request->phone;
       $employee->company_id = $request->company_id;
       $employee->save();
-      return redirect('/editEmployee/'.$id)->with('alert-success', 'Employee Sucessfully Updated!');
+      return redirect('/editEmployee/'.$id)->with('alert-success', trans('messages.employee_updated'));
     }
 
         public function delete(Request $request,$id){
         Employee::findorFail($id)->delete();
-        return redirect('/employees')->with('alert-success', 'Employee Suceesfully Deleted!');
+        return redirect('/employees')->with('alert-success', trans('messages.employee_deleted'));
     }
 }

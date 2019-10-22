@@ -16,33 +16,33 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     
-      
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-   <style>
-.vertical-menu {
-  width: 200px;
-}
+    <style>
+        .vertical-menu {
+          width: 200px;
+      }
 
-.vertical-menu a {
-  background-color: #fff;
-  color: black;
-  display: block;
-  padding: 12px;
-  text-decoration: none;
-}
+      .vertical-menu a {
+          background-color: #fff;
+          color: black;
+          display: block;
+          padding: 12px;
+          text-decoration: none;
+      }
 
-.vertical-menu a:hover {
-  background-color: rgba(0,0,0,.03);
-  border:1px solid rgba(0,0,0,.125);
-}
+      .vertical-menu a:hover {
+          background-color: rgba(0,0,0,.03);
+          border:1px solid rgba(0,0,0,.125);
+      }
 
-.vertical-menu a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-</style>
+      .vertical-menu a.active {
+          background-color: #4CAF50;
+          color: white;
+      }
+  </style>
 </head>
 <body>
     <div id="app">
@@ -57,33 +57,43 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
+                    <!-- Inicio language !-->
+                    @if (config('locale.status') && count(config('locale.languages')) > 1)
+                    <div class="top-right links">
+                        @foreach (array_keys(config('locale.languages')) as $lang)
+                        @if ($lang != App::getLocale())
+                        <a href="{!! route('lang.swap', $lang) !!}">
+                            {!! strtoupper($lang) !!} 
+                        </a>
+                        @endif
+                        @endforeach
+                    </div>
+                    @endif
+                    <!-- Fin langauage !-->
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @if (Route::has('register'))
                                 {{-- <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li> --}}
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                                @endif
+                                @else
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                    </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                        {!! trans('messages.logout') !!}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -91,16 +101,16 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
-                    </ul>
+                            @endguest
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
 
-        <main class="py-4">
-            @yield('content')
+            <main class="py-4">
+                @yield('content')
 
-        </main>
-    </div>
-</body>
-</html>
+            </main>
+        </div>
+    </body>
+    </html>

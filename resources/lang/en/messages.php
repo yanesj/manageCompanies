@@ -1,0 +1,37 @@
+<?php
+return [
+	'logout' => 'Logout',
+	'admin_menu'=>'Admin Menu',
+	'companies'=>'Companies',
+	'employees'=>'Employees',
+	'create_companies'=>'Create Companies',
+	'success'=>'Success!',
+	'company_created'=>'Company Sucessfully Created, we have sent you an e-mail notification!!',
+	'name'=>'Name',
+	'logo'=>'Logo',
+	'email'=>'E-mail',
+	'website'=>'Web Site',
+	'send'=>'Send',
+	'view_companies'=>'View Companies',
+	'actions'=>'Actions',
+	'view'=>'View Logo',
+	'delete'=>'Delete',
+	'update'=>'Update',
+	'edit_companies'=>'Edit Companies',
+	'company_updated'=>'Comany Sucessfully Updated!',
+	'company_deleted'=>'Comany Sucessfully Deleted!',
+	'create_employees'=>'Create Employees',
+	'first_name'=>'Name',
+	'second_name'=>'Second Name',
+	'company'=>'Company',
+	'choose_option'=>'Choose Option',
+	'phone'=>'Phone',
+	'view_employees'=>'View Employees',
+	'edit_employees'=>'Edit Employees',
+	'employee_created'=>'Employee Sucessfully Created',
+	'employee_updated'=>'Employee Sucessfully Updated!',
+	'employee_deleted'=>'Employee Sucessfully Deleted!',
+	'company_created_notification'=>'Creation Company notification'
+
+
+];

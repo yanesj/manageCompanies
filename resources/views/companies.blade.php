@@ -12,12 +12,12 @@
         </div>
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Create Companies</div>
+                <div class="card-header">{!! trans('messages.create_companies') !!}</div>
 
                 <div class="card-body">
                     @if(session()->has('alert-success')) 
                     <div class="alert alert-success">
-                      <strong>Success!</strong> {{ session()->get('alert-success') }} 
+                      <strong>{!! trans('messages.success') !!}</strong> {{ session()->get('alert-success') }} 
                   </div>
 
                   @endif 
@@ -35,28 +35,28 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control"  name="name" id="name" placeholder="Name">
+                                <label for="name">{!! trans('messages.name') !!}</label>
+                                <input type="text" class="form-control"  name="name" id="name" placeholder="{!! trans('messages.name') !!}">
                             </div>
                             <div class="form-group">
-                                <label for="email">E-mail</label>
-                                <input type="text" class="form-control" name="email" id="email" placeholder="E-mail">
+                                <label for="email">{!! trans('messages.email') !!}</label>
+                                <input type="text" class="form-control" name="email" id="email" placeholder="{!! trans('messages.email') !!}">
                             </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="logo">Logo</label>
-                            <input type="file" class="form-control" name="logo" id="logo" placeholder="Logo">
+                            <label for="logo">{!! trans('messages.logo') !!}</label>
+                            <input type="file" class="form-control" name="logo" id="logo" placeholder="{!! trans('messages.logo') !!}">
                         </div>
                         <div class="form-group">
-                            <label for="website">Web Site</label>
-                            <input type="text" class="form-control" name="website" id="website" placeholder="Web Site">
+                            <label for="website">{!! trans('messages.website') !!}</label>
+                            <input type="text" class="form-control" name="website" id="website" placeholder="{!! trans('messages.website') !!}">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Send</button>
+                            <button type="submit" class="btn btn-primary">{!! trans('messages.send') !!}</button>
                         </div>
                     </div>
 
@@ -72,16 +72,16 @@
 <div class="row">
     <div class="col-md-12">
        <div class="card">
-        <div class="card-header">View Companies</div>
+        <div class="card-header">{!! trans('messages.view_companies') !!}</div>
         <div class="card-body">
             <table class="table table-bordered">
               <thead>
                 <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">E-mail</th>
-                  <th scope="col">Web Site</th>
-                  <th scope="col">Logo</th>
-                  <th scope="col">Actions</th>
+                  <th scope="col">{!! trans('messages.name') !!}</th>
+                  <th scope="col">{!! trans('messages.email') !!}</th>
+                  <th scope="col">{!! trans('messages.website') !!}</th>
+                  <th scope="col">{!! trans('messages.logo') !!}</th>
+                  <th scope="col">{!! trans('messages.actions') !!}</th>
               </tr>
           </thead>
           <tbody>
@@ -91,15 +91,12 @@
                   </a></th>
                   <td>{{$company->email}}</td>
                   <td>{{$company->website}}</td>
-                  <td><a href="{{ asset('storage/'.$company->logo) }}" target="_blank">View</a></td>
+                  <td><a href="{{ asset('storage/'.$company->logo) }}" target="_blank">{!! trans('messages.view') !!}</a></td>
                   <td><form action="{{ route('deleteCompany', $company->id) }}" method="POST">
                     {{csrf_field()}}
                     {{method_field('DELETE')}}
-                   <button type="submit" class="btn btn-primary">Delete</button>
-                    
+                   <button type="submit" class="btn btn-primary">{!! trans('messages.delete') !!}</button>
                   </form>
-                   
-
                 </td>
                 </tr>
             @endforeach

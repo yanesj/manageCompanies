@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DealWithFile;
-
+use Mail;
 use App\Company;
 
 class HomeController extends Controller
@@ -35,7 +35,9 @@ class HomeController extends Controller
 
     public function create(Request $request){
         $validator = Validator::make($request->all(),[
-          'name'=>'required'
+          'name'=>'required',
+          'email'=>'email',
+          'logo'=>'required'
 
       ]);
         
@@ -57,9 +59,17 @@ class HomeController extends Controller
         $company->logo = $nombre.'.'.$fileExtension;
         $company->website = $request->website;
         $company->save();
+        
+        $data = array('name'=>"Jailton Yanes");
+
+        Mail::send(['text'=>'notifications'], $data, function($message) use ($request) {
+         $message->to($request->email,trans('messages.company_created'))->subject
+            (trans('messages.company_created_notification'));
+         $message->from('jailtonyanesromero@gmail.com','Jailton Yanes');
+      });
 
         
-        return redirect('/companies')->with('alert-success', 'Success!');
+        return redirect('/companies')->with('alert-success',trans('messages.company_created'));
 
     }
 
@@ -72,7 +82,9 @@ class HomeController extends Controller
         $company = Company::findOrFail($id);
 
          $validator = Validator::make($request->all(),[
-          'name'=>'required'
+          'name'=>'required',
+          'email'=>'email',
+          'logo'=>'required'
 
       ]);
         
@@ -93,12 +105,12 @@ class HomeController extends Controller
         $company->logo = $nombre.'.'.$fileExtension;
         $company->website = $request->website;
         $company->save();
-        return redirect('/editCompany/'.$id)->with('alert-success', 'Comany Sucessfully Updated!');
+        return redirect('/editCompany/'.$id)->with('alert-success',trans('messages.company_updated'));
     }
 
     public function delete(Request $request,$id){
         Company::findorFail($id)->delete();
-        return redirect('/companies')->with('alert-success', 'Company Suceesfully Deleted!');
+        return redirect('/companies')->with('alert-success',trans('messages.company_deleted'));
     }
 
 }

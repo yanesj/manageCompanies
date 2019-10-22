@@ -12,12 +12,12 @@
         </div>
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Edit Employees</div>
+                <div class="card-header">{!! trans('messages.edit_employees') !!}</div>
 
                 <div class="card-body">
                    @if(session()->has('alert-success')) 
                     <div class="alert alert-success">
-                      <strong>Success!</strong> {{ session()->get('alert-success') }} 
+                      <strong>{!! trans('messages.success') !!}</strong> {{ session()->get('alert-success') }} 
                   </div>
 
                   @endif 

@@ -12,12 +12,12 @@
         </div>
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Create Employees</div>
+                <div class="card-header">{!! trans('messages.create_employees') !!}</div>
 
                 <div class="card-body">
                     @if(session()->has('alert-success')) 
                     <div class="alert alert-success">
-                      <strong>Success!</strong> {{ session()->get('alert-success') }} 
+                      <strong>{!! trans('messages.success') !!}</strong> {{ session()->get('alert-success') }} 
                   </div>
                   @endif 
 
@@ -31,13 +31,13 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="first_name">First Name</label>
-                                <input type="text" class="form-control"  name="first_name" id="first_name" placeholder="First Name">
+                                <label for="first_name">{!! trans('messages.first_name') !!}</label>
+                                <input type="text" class="form-control"  name="first_name" id="first_name" placeholder="{!! trans('messages.first_name') !!}">
                             </div>
                             <div class="form-group">
-                                <label for="company_id">Company</label>
+                                <label for="company_id">{!! trans('messages.company') !!}</label>
                                 <select id="company_id" name="company_id" class="form-control">
-                                    <option selected value="">Choose...</option>
+                                    <option selected value="">{!! trans('messages.choose_option') !!}</option>
                                     @foreach($companies as $companie)  
                                     <option value="{{$companie->id}}">{{$companie->name}}</option>
                                     @endforeach  
@@ -46,12 +46,12 @@
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="last_name">Last Name</label>
-                            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name">
+                            <label for="last_name">{!! trans('messages.second_name') !!}</label>
+                            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="{!! trans('messages.second_name') !!}">
                         </div>
                         <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="text" class="form-control" name="email" id="email" placeholder="E-mail">
+                            <label for="email">{!! trans('messages.email') !!}</label>
+                            <input type="text" class="form-control" name="email" id="email" placeholder="{!! trans('messages.email') !!}">
                         </div>
                     </div>
 
@@ -61,8 +61,8 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
+                            <label for="phone">{!! trans('messages.phone') !!}</label>
+                            <input type="text" class="form-control" name="phone" id="phone" placeholder="{!! trans('messages.phone') !!}">
                         </div>
                     </div>
 
@@ -71,7 +71,7 @@
                 </div>
                 <div class="form-group">
 
-                    <button type="submit" class="btn btn-primary">Send</button>
+                    <button type="submit" class="btn btn-primary">{!! trans('messages.send') !!}</button>
 
                 </div>
 
@@ -85,17 +85,17 @@
 <div class="row">
     <div class="col-md-12">
        <div class="card">
-        <div class="card-header">View Employees</div>
+        <div class="card-header">{!! trans('messages.view_employees') !!}</div>
         <div class="card-body">
             <table class="table table-bordered">
               <thead>
                 <tr>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Company</th>
-                    <th scope="col">E-mail</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">{!! trans('messages.first_name') !!}</th>
+                    <th scope="col">{!! trans('messages.second_name') !!}</th>
+                    <th scope="col">{!! trans('messages.company') !!}</th>
+                    <th scope="col">{!! trans('messages.email') !!}</th>
+                    <th scope="col">{!! trans('messages.phone') !!}</th>
+                    <th scope="col">{!! trans('messages.actions') !!}</th>
 
                 </tr>
             </thead>
@@ -111,7 +111,7 @@
                   <td><form action="{{ route('deleteEmployee', $employee->id) }}" method="POST">
                     {{csrf_field()}}
                     {{method_field('DELETE')}}
-                   <button type="submit" class="btn btn-primary">Delete</button>
+                   <button type="submit" class="btn btn-primary">{!! trans('messages.delete') !!}</button>
                   </form></td>
 
 
