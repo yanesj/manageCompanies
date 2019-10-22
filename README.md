@@ -73,5 +73,5 @@ The Laravel framework is open-source software licensed under the [MIT license](h
 
 ## Instalation
 
-After cloning the project, pelase please migrate and seed the database.
+After cloning the project, please migrate and seed the database.
 
