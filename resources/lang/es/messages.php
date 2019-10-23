@@ -31,7 +31,10 @@ return [
     'employee_created'=>'¡Empleado Creado Exitosamente!',
     'employee_updated'=>'¡Empleado Actualizado Exitosamente!',
 	'employee_deleted'=>'¡Empleado Eliminado Exitosamente!',
-	'company_created_notification'=>'Notificacion de creación de compañia'
+	'company_created_notification'=>'Notificacion de creación de compañia',
+    'password'=>'Contraseña',
+    'remember'=>'Recordar',
+    'forgot_password'=>'¿Olvidó su contraseña?'
     
 
 

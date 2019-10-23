@@ -31,7 +31,10 @@ return [
 	'employee_created'=>'Employee Sucessfully Created',
 	'employee_updated'=>'Employee Sucessfully Updated!',
 	'employee_deleted'=>'Employee Sucessfully Deleted!',
-	'company_created_notification'=>'Creation Company notification'
+	'company_created_notification'=>'Creation Company notification',
+	'password'=>'Password',
+	'remember'=>'Remember Me',
+	'forgot_password'=>'Forgot  Your Password?'
 
 
 ];
