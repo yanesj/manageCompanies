@@ -65,7 +65,7 @@ class HomeController extends Controller
         Mail::send(['text'=>'notifications'], $data, function($message) use ($request) {
          $message->to($request->email,trans('messages.company_created'))->subject
             (trans('messages.company_created_notification'));
-         $message->from('jailtonyanesromero@gmail.com','Jailton Yanes');
+         $message->from('diazarellanacludiap@gmail.com','Claudia Diaz');
       });
 
         
